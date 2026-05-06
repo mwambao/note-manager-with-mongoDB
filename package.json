@@ -1,0 +1,31 @@
+{
+  "name": "note-manager-with-mongodb",
+  "version": "1.0.0",
+  "description": "Upgrade your Notes API so notes survive server restarts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwambao/note-manager-with-mongoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/mwambao/note-manager-with-mongoDB/issues"
+  },
+  "homepage": "https://github.com/mwambao/note-manager-with-mongoDB#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

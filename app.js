@@ -21,8 +21,7 @@ app.get('/', (req, res) => {
 app.get('/api/notes', async (req, res) => {
     try {
         const notes = await myNote.find();
-        res.json(notes);
-        res.status(200).json({message: 'Notes retrieved successfully'})
+        res.status(200).json(notes);
     }
     catch(error)
     {
@@ -35,8 +34,7 @@ app.get('/api/notes/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const note = await myNote.findById(id);
-        res.json(note);
-        res.status(200).json({message: 'Note retrieved successfully'});
+        res.status(200).json(note);
     }
 
     catch(error) {

@@ -1,5 +1,6 @@
 // Import mongoose to define the structure of our data
 import mongoose from 'mongoose';
+import User from './User.js';
 
 // Define a "schema" - this is like a blueprint that tells MongoDB
 // what a note should look like (what fields it has and their rules)
@@ -17,6 +18,14 @@ const mynoteSchema = new mongoose.Schema(
         completed: {
             type: Boolean,
             default: false
+        },
+        // The 'user' field: references the 'User' model (so each note belongs to a user)
+        // It's required, meaning every note must have an associated user   
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+
         }
     },
     {
@@ -24,6 +33,9 @@ const mynoteSchema = new mongoose.Schema(
         timestamps: true
     }
 );
+
+
+
 
 // Create a model from the schema - this gives us methods like .find(), .create(), .findByIdAndUpdate()
 // 'myNote' is the name MongoDB will use for the collection (it becomes 'mynotes' in the database)

@@ -2,13 +2,17 @@
 
 ## Goal
 
-Upgrade your Notes API so notes survive server restarts.
+Upgrade your Notes API so notes survive server restarts i.e. use MongoDB as backend database.
+
+Only logged in users can mamnage notes.
 
 ## Requirements
 
 Build:
 
 ```
+POST    /api/users/register
+POST    /api/users/login
 GET     /api/notes
 GET     /api/notes/:id
 POST    /api/notes
@@ -16,12 +20,20 @@ PUT     /api/notes/:id
 DELETE  /api/notes/:id
 ```
 
+Protected routes must require: 
+
+````
+Authorization: Bearer <token>
+````
+Bonus: Each user should only see their own notes.
+
 Each note should support:
 
 ```
 {
 text:String,
-completed:Boolean
+completed:Boolean,
+user.req.user._id
 }
 ```
 

@@ -4,7 +4,17 @@
 
 Upgrade your Notes API so notes survive server restarts i.e. use MongoDB as backend database.
 
-Only logged in users can mamnage notes.
+In other words you need to implement the following:
+
+1. JWT authentication
+2. Password hashing with bcrypt
+3. Protected routes
+4. MongoDB models
+5. ESM imports
+6. Full CRUD routes
+
+
+Only logged in users can manage notes.
 
 ## Requirements
 
@@ -25,9 +35,14 @@ Protected routes must require:
 ````
 Authorization: Bearer <token>
 ````
-Bonus: Each user should only see their own notes.
+Bonus: Each user should only see their own notes. Which means to get notes from MongoDB should be:
 
-Each note should support:
+```
+const notes = await myNotes.find( user: req.user._id);
+
+```
+
+Hence each note should support:
 
 ```
 {
@@ -36,6 +51,7 @@ completed:Boolean,
 user.req.user._id
 }
 ```
+
 
 Add validation:
 

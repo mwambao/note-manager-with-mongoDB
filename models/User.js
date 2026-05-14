@@ -51,6 +51,12 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
 };
 
 // Create the 'User' model from the schema (this represents the 'users' collection in MongoDB)
+// Take NOTE that mongoDB will do the following to the model name (Expected behaviour):
+//      1. Lowercase the model name to 'user'. 
+//      2. Then, pluralize the model name from to 'users'. 
+// If I wanted to override this behavior i would have used a 3rd override as argument 
+// //i.e. mongoose.model('User', userSchema, 'my_custom_collection');
+
 const User = mongoose.model('User', userSchema);
 // Export the User model so other files can use it
 export default User;

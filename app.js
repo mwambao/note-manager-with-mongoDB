@@ -25,6 +25,10 @@ const PORT = process.env.PORT || 3000;
 // Without this, req.body would be undefined when clients send JSON data
 app.use(express.json());
 
+// Serve static files (like HTML, CSS, JS) from the "public" directory
+// This lets clients access files like index.html, style.css, etc.      
+app.use(express.static('public'));
+
 // Call the function to connect to MongoDB
 connectDB();
 
